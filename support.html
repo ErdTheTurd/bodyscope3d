@@ -1,232 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0a0c10">
-    <meta name="description" content="Support for Bodyscope 3D. A support contact is coming soon.">
-    <title>Support — Bodyscope 3D</title>
-    <style>
-:root {
-  --bg: #0a0c10;
-  --bg-elev: #13161d;
-  --ink: #f2efe8;
-  --muted: #a8a396;
-  --line: rgba(242, 239, 232, 0.12);
-  --accent: #c9b8a0;
-  --teal: #8aa8a8;
-  --max: 68rem;
-  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-* { box-sizing: border-box; }
-html { color-scheme: dark; scroll-behavior: smooth; }
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: var(--font);
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  color: var(--ink);
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -12%, rgba(138, 168, 168, 0.18), transparent 58%),
-    radial-gradient(ellipse 42% 32% at 92% 8%, rgba(201, 184, 160, 0.09), transparent 52%),
-    radial-gradient(ellipse 46% 36% at 8% 18%, rgba(86, 108, 150, 0.12), transparent 55%),
-    var(--bg);
-}
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
-a:hover { color: #e2d4c0; }
-img { max-width: 100%; }
-.wrap { width: min(var(--max), calc(100% - 2.5rem)); margin-inline: auto; }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(16px);
-  background: rgba(10, 12, 16, 0.62);
-  border-bottom: 1px solid var(--line);
-}
-.bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  padding: 1rem 0;
-}
-.logo {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-.logo:hover { color: var(--ink); }
-.logo span { color: var(--accent); font-weight: 500; }
-nav { display: flex; gap: 1.25rem; }
-nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
-nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
-main { padding: 4.5rem 0 5rem; }
-.eyebrow {
-  margin: 0 0 1rem;
-  color: var(--teal);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(2.6rem, 7vw, 5.2rem);
-  font-weight: 560;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
-h1 em { font-style: normal; color: var(--accent); }
-.lead {
-  margin: 0;
-  max-width: 28rem;
-  color: var(--muted);
-  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-  line-height: 1.45;
-}
-.hero { padding-bottom: 4.5rem; }
-.hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 3rem;
-  align-items: center;
-}
-.orb {
-  position: relative;
-  min-height: 22rem;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 50% 42%, rgba(201, 184, 160, 0.16), transparent 34%),
-    radial-gradient(circle at 50% 58%, rgba(138, 168, 168, 0.12), transparent 42%),
-    linear-gradient(180deg, #161a22, #0e1117);
-}
-.orb::before, .orb::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  border: 1px solid rgba(242, 239, 232, 0.14);
-}
-.orb::before { width: 9.5rem; height: 9.5rem; top: 16%; }
-.orb::after { width: 15rem; height: 22rem; top: 18%; border-radius: 50% 50% 46% 46%; }
-.figure {
-  position: absolute;
-  inset: 12% 28% 8%;
-  border-radius: 50% 50% 42% 42%;
-  background:
-    linear-gradient(180deg, rgba(201, 184, 160, 0.28), rgba(138, 168, 168, 0.08) 45%, transparent 80%);
-  filter: blur(0.2px);
-}
-.layers, .how, .note, .credits { padding-top: 1rem; }
-section + section { margin-top: 4.25rem; }
-h2 {
-  margin: 0 0 1.5rem;
-  font-size: clamp(1.4rem, 3vw, 1.85rem);
-  font-weight: 560;
-  letter-spacing: -0.03em;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-.card, .step, .panel {
-  background: rgba(19, 22, 29, 0.72);
-  border: 1px solid var(--line);
-  border-radius: 1.15rem;
-  padding: 1.4rem 1.35rem 1.5rem;
-}
-.kicker {
-  margin: 0 0 0.55rem;
-  color: var(--accent);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.card h3, .step h3 {
-  margin: 0 0 0.6rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.card p, .step p, .panel p { margin: 0; color: var(--muted); }
-.steps {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-.num {
-  display: inline-block;
-  margin-bottom: 0.7rem;
-  color: var(--teal);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-.panel { max-width: 46rem; }
-.credits p { max-width: 46rem; color: var(--muted); }
-.credits a { color: var(--ink); }
-footer {
-  border-top: 1px solid var(--line);
-  padding: 1.6rem 0 2.2rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-.foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.foot nav { gap: 1rem; }
-.page-title { margin: 0 0 1rem; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.04em; }
-.prose { max-width: 38rem; color: var(--muted); }
-.prose p { margin: 0 0 1rem; }
-@media (max-width: 800px) {
-  .hero-inner, .grid, .steps { grid-template-columns: 1fr; }
-  .orb { min-height: 16rem; }
-  main { padding-top: 3rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Bodyscope 3D</title>
+  <meta name="description" content="Support for Bodyscope 3D. A support contact is coming soon. There is no email address yet.">
+  <meta name="theme-color" content="#14110e">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="wrap bar">
-        <a class="logo" href="index.html">Bodyscope <span>3D</span></a>
-        <nav aria-label="Site">
-          <a href="privacy.html">Privacy</a>
-          <a href="support.html" aria-current="page">Support</a>
-        </nav>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="./">Bodyscope <em>3D</em></a>
+      <ul class="nav-links">
+        <li><a href="./">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="support.html" aria-current="page">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <div class="page-narrow">
+      <p class="kicker">Bodyscope 3D</p>
+      <h1>Support</h1>
+      <p class="lede">A support contact is coming soon. We do not have an email address yet.</p>
+      <h2>The app</h2>
+      <p>Bodyscope 3D is an educational app for Apple Vision Pro. A life-size 3D human body stands in your room. You can peel back skeleton, muscles, and organs, and tap a part to see its name. It works offline.</p>
+      <p>It is not released yet. It is not medical advice.</p>
+      <h2>Privacy</h2>
+      <p>See the <a href="privacy.html">Privacy</a> page for what the app and this site do — and do not — collect.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Bodyscope 3D. Coming to Apple Vision Pro.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
       </div>
-    </header>
-    <main class="wrap">
-      <p class="eyebrow">Bodyscope 3D</p>
-      <h1 class="page-title">Support</h1>
-      <div class="prose">
-        <p>A support contact is coming soon. We do not have an email address for support yet.</p>
-        <p>Please check back here when you need help with Bodyscope 3D.</p>
-      </div>
-    </main>
-    <footer>
-      <div class="wrap foot">
-        <p>Coming soon to Apple Vision Pro</p>
-        <nav aria-label="Footer">
-          <a href="privacy.html">Privacy</a>
-          <a href="support.html">Support</a>
-        </nav>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
 </html>
